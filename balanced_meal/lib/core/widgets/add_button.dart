@@ -12,7 +12,6 @@ class AddButton extends StatelessWidget {
       height: 32.h,
       width: 65.w,
       child: ElevatedButton(
-        child: Text('Add'),
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorsManager.mainOrange,
@@ -25,6 +24,7 @@ class AddButton extends StatelessWidget {
             fontFamily: 'poppins',
           ),
         ),
+        child: Text('Add'),
       ),
     );
   }
