@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/balanced_meal/balanced_meal.iml" filepath="$PROJECT_DIR$/balanced_meal/balanced_meal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/balanced_meal/android/balanced_meal_android.iml" filepath="$PROJECT_DIR$/balanced_meal/android/balanced_meal_android.iml" />
+    </modules>
+  </component>
+</project>
