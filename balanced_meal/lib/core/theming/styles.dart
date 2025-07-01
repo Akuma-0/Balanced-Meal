@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
-  static TextStyle font20GrayLight= TextStyle(
+  static TextStyle font20GrayLight = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.light,
     color: ColorsManager.gray,
@@ -13,26 +13,46 @@ class TextStyles {
   static TextStyle font16WhiteMedium = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
-    color:  Colors.white,
+    color: Colors.white,
   );
-    static TextStyle font20BlackMedium = TextStyle(
+    static TextStyle font16WhiteRegular= TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.white,
+  );
+  static TextStyle font20BlackMedium = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.medium,
     color: Colors.black,
   );
-      static TextStyle font14LightBlackMedium = TextStyle(
+  static TextStyle font14LightBlackMedium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.lightBlack,
   );
-        static TextStyle font16LightBlackMedium = TextStyle(
+  static TextStyle font16LightBlackMedium = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.lightBlack,
   );
-        static TextStyle font16MidGrayRegular = TextStyle(
+  static TextStyle font16MidGrayRegular = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.midGray,
+  );
+  static TextStyle font14MidGrayRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.midGray,
+  );
+  static TextStyle font16BlackRegular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.black,
+  );
+  static TextStyle font16BlackMedium = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.black,
   );
 }
