@@ -20,6 +20,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.chevron_left, color: Color(0xff1E1E1E)),
           onPressed: () {

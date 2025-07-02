@@ -13,7 +13,7 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: TextStyles.font20GrayLight.copyWith(fontFamily: 'poppins'),
+        style: TextStyles.font16WhiteMedium.copyWith(fontFamily: 'poppins'),
       ),
       style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(double.infinity, 50)),
