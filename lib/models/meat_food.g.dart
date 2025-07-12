@@ -7,13 +7,13 @@ part of 'meat_food.dart';
 // **************************************************************************
 
 MeatFood _$MeatFoodFromJson(Map<String, dynamic> json) => MeatFood(
-  name: json['name'] as String,
+  name: json['food_name'] as String,
   calories: (json['calories'] as num).toInt(),
-  imageUrl: json['imageUrl'] as String,
+  imageUrl: json['image_url'] as String,
 );
 
 Map<String, dynamic> _$MeatFoodToJson(MeatFood instance) => <String, dynamic>{
-  'name': instance.name,
+  'food_name': instance.name,
   'calories': instance.calories,
-  'imageUrl': instance.imageUrl,
+  'image_url': instance.imageUrl,
 };

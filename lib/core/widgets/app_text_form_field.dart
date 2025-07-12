@@ -11,9 +11,11 @@ class AppTextFormField extends StatelessWidget {
   final bool obscureText;
   final Widget? suffixIcon;
   final TextStyle? inputTextStyle;
+  Function(String)? onChanged = (_) {};
+  String? Function(String?)? validator=(_)=>'';
   final TextStyle? hintStyle;
   final Color? backgroundColor;
-  const AppTextFormField({
+  AppTextFormField({
     super.key,
     this.backgroundColor,
     this.constantPadding,
@@ -24,15 +26,19 @@ class AppTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.inputTextStyle,
     this.hintStyle,
+    this.onChanged,
+    this.validator,
   });
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
+      onChanged: onChanged,
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
             constantPadding ??
-            EdgeInsets.symmetric(horizontal:12.w, vertical: 12.h),
+            EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
@@ -52,9 +58,16 @@ class AppTextFormField extends StatelessWidget {
               ),
             ),
         hintStyle: TextStyles.font16MidGrayRegular.copyWith(
-                    fontFamily: 'questrial',
-                  ),
+          fontFamily: 'questrial',
+        ),
         hintText: hintText,
+        errorBorder:  OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(
+                color: Colors.red,
+                width: 1,
+              ),
+            ),
         suffixIcon: suffixIcon,
         fillColor: Colors.white,
         filled: true,

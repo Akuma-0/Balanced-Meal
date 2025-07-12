@@ -1,16 +1,18 @@
 import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:balanced_meal/core/widgets/add_button.dart';
 import 'package:balanced_meal/core/widgets/counter_widget.dart';
+import 'package:balanced_meal/models/food_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodCard extends StatelessWidget {
-  const FoodCard({super.key});
+   FoodCard({super.key, required this.foodData});
+  FoodBase foodData;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only( left:5.w,top: 10.h, bottom: 10.h),
+      margin: EdgeInsets.only(left: 5.w, top: 10.h, bottom: 10.h),
       height: 196.h,
       width: 183.w,
       decoration: BoxDecoration(
@@ -31,12 +33,20 @@ class FoodCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(6.r),
-              child: Image.asset(
-                'assets/images/welcome_background.jpg',
-                height: 108.h,
-                width: 163.w,
-                fit: BoxFit.cover,
-              ),
+              child: (foodData.imageUrl.isNotEmpty)
+                      ? FadeInImage.assetNetwork(
+                        placeholder: 'assets/images/Loading.gif',
+                        image: foodData.imageUrl,
+                        height: 108.h,
+                        width: 163.w,
+                        fit: BoxFit.cover,
+                      )
+                      : Image.asset(
+                        'assets/images/no_image.png',
+                        width: double.infinity,
+                        height: 120.h,
+                        fit: BoxFit.cover,
+                      ),
             ),
             SizedBox(height: 10.h),
             Row(
@@ -44,7 +54,7 @@ class FoodCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Bell Pepper',
+                    foodData.name,
                     style: TextStyles.font16BlackRegular.copyWith(
                       fontFamily: 'poppins',
                     ),
@@ -54,7 +64,7 @@ class FoodCard extends StatelessWidget {
                 ),
                 SizedBox(width: 10.w),
                 Text(
-                  '12 Cal',
+                  '${foodData.calories} Cal',
                   style: TextStyles.font14MidGrayRegular.copyWith(
                     fontFamily: 'poppins',
                   ),
@@ -80,3 +90,19 @@ class FoodCard extends StatelessWidget {
     );
   }
 }
+/*
+(food.image.isNotEmpty)
+                  ? FadeInImage.assetNetwork(
+                    placeholder: 'assets/images/loading.gif',
+                    image: character.image,
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover,
+                  )
+                  : Image.asset(
+                    'assets/images/no_image.png',
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+ */

@@ -8,14 +8,14 @@ part of 'vegetable_food.dart';
 
 VegetableFood _$VegetableFoodFromJson(Map<String, dynamic> json) =>
     VegetableFood(
-      name: json['name'] as String,
+      name: json['food_name'] as String,
       calories: (json['calories'] as num).toInt(),
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: json['image_url'] as String,
     );
 
 Map<String, dynamic> _$VegetableFoodToJson(VegetableFood instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'food_name': instance.name,
       'calories': instance.calories,
-      'imageUrl': instance.imageUrl,
+      'image_url': instance.imageUrl,
     };

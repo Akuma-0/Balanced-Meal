@@ -6,6 +6,6 @@ import 'package:flutter/material.dart';
 Map<String, Widget Function(BuildContext)> routes = {
   'welcomeScreen': (context) => const WelcomeScreen(),
   'userDetailsScreen': (context) => const  EnterUserDetailsScreen(),
-  'createOrderScreen': (context) => const CreateOrderScreen(),
+  'createOrderScreen': (context) =>  CreateOrderScreen(),
   // 'orderDetailsScreen': (context) => const OrderDetailsScreen(),
 };

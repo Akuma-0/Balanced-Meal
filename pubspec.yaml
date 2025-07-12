@@ -1,5 +1,7 @@
 name: balanced_meal
-description: "Balanced Meal  is a special kind of restaurant that let you pick the ingredients you want to be added into your meal based on their nutrition facts."
+description: "Balanced Meal  is a special kind of restaurant that let you pick
+  the ingredients you want to be added into your meal based on their nutrition
+  facts."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -28,20 +30,17 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^9.0.0
+  cupertino_icons: ^1.0.8
+  dio: ^5.8.0+1
+  dropdown_button2: ^2.3.9
   flutter:
     sdk: flutter
-  dio: ^5.8.0+1
+  flutter_bloc: ^9.1.1
   flutter_screenutil: ^5.9.3
-  dropdown_button2: ^2.3.9
   json_annotation: ^4.9.0
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  json_serializable: ^6.9.5
   build_runner: ^2.3.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -50,10 +49,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^6.9.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -68,10 +69,8 @@ flutter:
     - assets/data/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
