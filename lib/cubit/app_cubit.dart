@@ -3,6 +3,7 @@ import 'package:balanced_meal/models/food_base.dart';
 import 'package:balanced_meal/models/meat_food.dart';
 import 'package:balanced_meal/models/vegetable_food.dart';
 import 'package:bloc/bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';

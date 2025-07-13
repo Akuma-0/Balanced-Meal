@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({super.key});
-
+  const AddButton({super.key, required this.onCountChanged});
+  final Function(int count) onCountChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 32.h,
       width: 65.w,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onCountChanged(1); // Example action, replace with actual logic
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorsManager.mainOrange,
           foregroundColor: Colors.white,

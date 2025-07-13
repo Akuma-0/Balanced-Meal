@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CreateOrderScreen extends StatefulWidget {
-  CreateOrderScreen({super.key});
+  const CreateOrderScreen({super.key});
 
   @override
   State<CreateOrderScreen> createState() => _CreateOrderScreenState();

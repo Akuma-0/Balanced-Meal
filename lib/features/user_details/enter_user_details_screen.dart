@@ -15,7 +15,7 @@ class EnterUserDetailsScreen extends StatefulWidget {
 
 class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
   static const List<String> gender = ['Male', 'Female'];
-  late int? age, height, weight;
+  int? age, height, weight;
   String? selectedGender;
   var formKey = GlobalKey<FormState>();
   @override
@@ -215,7 +215,9 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                         ),
                         onChanged: (val) {
                           if (val.isNotEmpty) {
-                            weight = int.tryParse(val);
+                            setState(() {
+                              weight = int.tryParse(val);
+                            });
                           }
                         },
                         validator: (val) {
@@ -249,7 +251,9 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                         ),
                         onChanged: (val) {
                           if (val.isNotEmpty) {
-                            height = int.tryParse(val);
+                            setState(() {
+                              height = int.tryParse(val);
+                            });
                           }
                         },
                         validator: (val) {
@@ -271,7 +275,9 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                         hintText: 'Enter your age',
                         onChanged: (val) {
                           if (val.isNotEmpty) {
-                            age = int.tryParse(val);
+                            setState(() {
+                              age = int.tryParse(val);
+                            });
                           }
                         },
                         validator: (val) {
@@ -316,7 +322,20 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                   );
                 }
               },
-              color: ColorsManager.mainOrange,
+              color:
+                  (height != null &&
+                          weight != null &&
+                          age != null &&
+                          selectedGender != null)
+                      ? ColorsManager.mainOrange
+                      : ColorsManager.lightGray,
+              textColor:
+                  (height != null &&
+                          weight != null &&
+                          age != null &&
+                          selectedGender != null)
+                      ? Colors.white
+                      : ColorsManager.midGray,
             ),
           ),
         ],

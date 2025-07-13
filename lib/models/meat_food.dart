@@ -6,10 +6,10 @@ part 'meat_food.g.dart';
 @JsonSerializable()
 class MeatFood extends FoodBase {
   const MeatFood({
-    required String name,
-    required int calories,
-    required String imageUrl,
-  }) : super(name: name, calories: calories, imageUrl: imageUrl);
+    required super.name,
+    required super.calories,
+    required super.imageUrl,
+  });
 
   factory MeatFood.fromJson(Map<String, dynamic> json) =>
       _$MeatFoodFromJson(json);

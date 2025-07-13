@@ -3,12 +3,20 @@ import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CounterWidget extends StatelessWidget {
-  const CounterWidget({super.key});
+// ignore: must_be_immutable
+class CounterWidget extends StatefulWidget {
+  CounterWidget({super.key, required this.count, required this.onCountChanged});
+  int count;
+  final Function(int count) onCountChanged;
+  @override
+  State<CounterWidget> createState() => _CounterWidgetState();
+}
 
+class _CounterWidgetState extends State<CounterWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
+      height: 32.h,
       width: 77.w,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,7 +27,15 @@ class CounterWidget extends StatelessWidget {
             child: IconButton(
               padding: EdgeInsets.all(0.0),
               icon: Icon(Icons.remove, size: 16.0),
-              onPressed: () {},
+              onPressed: () {
+                if (widget.count > 0) {
+                  setState(() {
+                    widget.count--;
+                    widget.onCountChanged(widget.count);
+                  });
+                  
+                }
+              },
               color: Colors.white,
               style: IconButton.styleFrom(
                 backgroundColor: ColorsManager.mainOrange,
@@ -31,7 +47,7 @@ class CounterWidget extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              '1', // Replace with actual counter value
+              '${widget.count}', // Replace with actual counter value
               style: TextStyles.font16BlackMedium.copyWith(
                 fontFamily: 'poppins',
               ),
@@ -46,7 +62,12 @@ class CounterWidget extends StatelessWidget {
             child: IconButton(
               padding: EdgeInsets.all(0.0),
               icon: Icon(Icons.add, size: 16.0),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  widget.count++;
+                  widget.onCountChanged(widget.count);
+                });
+              },
               color: Colors.white,
               style: IconButton.styleFrom(
                 backgroundColor: ColorsManager.mainOrange,

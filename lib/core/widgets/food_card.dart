@@ -5,9 +5,22 @@ import 'package:balanced_meal/models/food_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FoodCard extends StatelessWidget {
-   FoodCard({super.key, required this.foodData});
+// ignore: must_be_immutable
+class FoodCard extends StatefulWidget {
+  FoodCard({super.key, required this.foodData, this.count = 0});
   FoodBase foodData;
+  int count;
+
+  @override
+  State<FoodCard> createState() => _FoodCardState();
+}
+
+class _FoodCardState extends State<FoodCard> {
+  void _onCountChanged(int count) {
+    setState(() {
+      widget.count = count;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +46,11 @@ class FoodCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(6.r),
-              child: (foodData.imageUrl.isNotEmpty)
+              child:
+                  (widget.foodData.imageUrl.isNotEmpty)
                       ? FadeInImage.assetNetwork(
                         placeholder: 'assets/images/Loading.gif',
-                        image: foodData.imageUrl,
+                        image: widget.foodData.imageUrl,
                         height: 108.h,
                         width: 163.w,
                         fit: BoxFit.cover,
@@ -54,7 +68,7 @@ class FoodCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    foodData.name,
+                    widget.foodData.name,
                     style: TextStyles.font16BlackRegular.copyWith(
                       fontFamily: 'poppins',
                     ),
@@ -64,7 +78,7 @@ class FoodCard extends StatelessWidget {
                 ),
                 SizedBox(width: 10.w),
                 Text(
-                  '${foodData.calories} Cal',
+                  '${widget.foodData.calories} Cal',
                   style: TextStyles.font14MidGrayRegular.copyWith(
                     fontFamily: 'poppins',
                   ),
@@ -81,7 +95,11 @@ class FoodCard extends StatelessWidget {
                     fontFamily: 'poppins',
                   ),
                 ),
-                AddButton(),
+                (widget.count == 0)
+                    ? AddButton(onCountChanged: _onCountChanged,)
+                    : CounterWidget(count: widget.count,
+                      onCountChanged: _onCountChanged,
+                    ),
               ],
             ),
           ],
@@ -90,19 +108,3 @@ class FoodCard extends StatelessWidget {
     );
   }
 }
-/*
-(food.image.isNotEmpty)
-                  ? FadeInImage.assetNetwork(
-                    placeholder: 'assets/images/loading.gif',
-                    image: character.image,
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  )
-                  : Image.asset(
-                    'assets/images/no_image.png',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
- */

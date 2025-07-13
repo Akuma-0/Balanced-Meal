@@ -3,6 +3,7 @@ import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? constantPadding;
   final InputBorder? focusedBorder;
