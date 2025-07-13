@@ -2,6 +2,7 @@ import 'package:balanced_meal/core/theming/colors.dart';
 import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:balanced_meal/core/widgets/app_text_button.dart';
 import 'package:balanced_meal/core/widgets/food_card.dart';
+import 'package:balanced_meal/core/helpers/price_and_calories_calculator.dart';
 import 'package:balanced_meal/cubit/app_cubit.dart';
 import 'package:balanced_meal/models/food_base.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +11,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CreateOrderScreen extends StatefulWidget {
-  const CreateOrderScreen({super.key});
-
+  CreateOrderScreen({super.key});
+  Map<FoodBase, int> foodCount = {};
   @override
   State<CreateOrderScreen> createState() => _CreateOrderScreenState();
 }
 
 class _CreateOrderScreenState extends State<CreateOrderScreen> {
   Map<String, List<FoodBase>> foodData = {};
-
   @override
   void initState() {
     super.initState();
@@ -28,6 +28,35 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
   @override
   Widget build(BuildContext context) {
     int maxCalories = (ModalRoute.of(context)!.settings.arguments as int);
+
+    Widget buildFoodList(List<FoodBase> foodList) {
+      return SizedBox(
+        height: 220.h,
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            FoodBase food = foodList[index];
+            if (!widget.foodCount.containsKey(food)) {
+              widget.foodCount[food] = 0;
+            }
+            return Padding(
+              padding: EdgeInsets.only(right: 12.w),
+              child: FoodCard(
+                foodData: food,
+                count: widget.foodCount[food]!,
+                onCountChanged: (int newCount) {
+                  setState(() {
+                    widget.foodCount[food] = newCount;
+                  });
+                },
+              ),
+            );
+          },
+          scrollDirection: Axis.horizontal,
+          itemCount: foodList.length,
+        ),
+      );
+    }
+
     return Scaffold(
       // backgroundColor: ColorsManager.lightGray,
       appBar: AppBar(
@@ -116,7 +145,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                                 ),
                               ),
                               Text(
-                                '1000 Cal out of $maxCalories Cal',
+                                '${priceAndCaloriesCalculator(widget.foodCount)['totalCalories']!.toInt()} Cal out of $maxCalories Cal',
                                 style: TextStyles.font14MidGrayRegular.copyWith(
                                   fontFamily: 'poppins',
                                 ),
@@ -134,7 +163,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                                 ),
                               ),
                               Text(
-                                '125 \$',
+                                '\$${priceAndCaloriesCalculator(widget.foodCount)['totalPrice']!.toInt()}',
                                 style: TextStyles.font16OrangeMedium.copyWith(
                                   fontFamily: 'poppins',
                                 ),
@@ -144,7 +173,13 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                           SizedBox(height: 20.h),
                           AppTextButton(
                             text: 'Place order',
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                'orderSummeryScreen',
+                                arguments: {widget.foodCount},
+                              );
+                            },
                             color: ColorsManager.mainOrange,
                           ),
                         ],
@@ -160,21 +195,6 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
             );
           }
         },
-      ),
-    );
-  }
-
-  Widget buildFoodList(List<FoodBase> foodList) {
-    return SizedBox(
-      height: 220.h, // Add a fixed height constraint
-      child: ListView.builder(
-        itemBuilder:
-            (context, index) => Padding(
-              padding: EdgeInsets.only(right: 12.w),
-              child: FoodCard(foodData: foodList[index]),
-            ),
-        scrollDirection: Axis.horizontal,
-        itemCount: foodList.length,
       ),
     );
   }

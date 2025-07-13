@@ -7,9 +7,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class FoodCard extends StatefulWidget {
-  FoodCard({super.key, required this.foodData, this.count = 0});
+  FoodCard({
+    super.key, 
+    required this.foodData, 
+    this.count = 0,
+    this.onCountChanged,
+  });
+  
   FoodBase foodData;
   int count;
+  final Function(int count)? onCountChanged;
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -20,6 +27,9 @@ class _FoodCardState extends State<FoodCard> {
     setState(() {
       widget.count = count;
     });
+    if (widget.onCountChanged != null) {
+      widget.onCountChanged!(count);
+    }
   }
 
   @override
