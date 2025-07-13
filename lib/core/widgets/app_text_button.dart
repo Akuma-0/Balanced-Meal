@@ -1,5 +1,6 @@
 import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class AppTextButton extends StatelessWidget {
@@ -19,6 +20,10 @@ class AppTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        fixedSize: WidgetStatePropertyAll(Size(double.infinity, 60)),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+        ),
         minimumSize: WidgetStatePropertyAll(Size(double.infinity, 50)),
         backgroundColor: WidgetStatePropertyAll(color),
       ),

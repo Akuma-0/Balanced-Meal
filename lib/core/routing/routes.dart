@@ -8,5 +8,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   'welcomeScreen': (context) => const WelcomeScreen(),
   'userDetailsScreen': (context) => const EnterUserDetailsScreen(),
   'createOrderScreen': (context) => CreateOrderScreen(),
-  'orderSummeryScreen': (context) => const OrderSummeryScreen(),
+  'orderSummeryScreen': (context) => OrderSummeryScreen(),
 };

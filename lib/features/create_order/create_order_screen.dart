@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:balanced_meal/core/theming/colors.dart';
 import 'package:balanced_meal/core/theming/styles.dart';
 import 'package:balanced_meal/core/widgets/app_text_button.dart';
-import 'package:balanced_meal/core/widgets/food_card.dart';
+import 'package:balanced_meal/features/create_order/widgets/food_card.dart';
 import 'package:balanced_meal/core/helpers/price_and_calories_calculator.dart';
 import 'package:balanced_meal/cubit/app_cubit.dart';
 import 'package:balanced_meal/models/food_base.dart';
@@ -145,7 +147,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                                 ),
                               ),
                               Text(
-                                '${priceAndCaloriesCalculator(widget.foodCount)['totalCalories']!.toInt()} Cal out of $maxCalories Cal',
+                                '${(widget.foodCount.isEmpty) ? '0' : priceAndCaloriesCalculator(widget.foodCount)['totalCalories']!.toString()} Cal out of $maxCalories Cal',
                                 style: TextStyles.font14MidGrayRegular.copyWith(
                                   fontFamily: 'poppins',
                                 ),
@@ -163,7 +165,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                                 ),
                               ),
                               Text(
-                                '\$${priceAndCaloriesCalculator(widget.foodCount)['totalPrice']!.toInt()}',
+                                '\$${(widget.foodCount.isEmpty) ? '0.0' : priceAndCaloriesCalculator(widget.foodCount)['totalPrice']!.toString()}',
                                 style: TextStyles.font16OrangeMedium.copyWith(
                                   fontFamily: 'poppins',
                                 ),
@@ -174,13 +176,40 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                           AppTextButton(
                             text: 'Place order',
                             onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                'orderSummeryScreen',
-                                arguments: {widget.foodCount},
-                              );
+                              double totalCalories =
+                                  priceAndCaloriesCalculator(
+                                    widget.foodCount,
+                                  )['totalCalories']!;
+                              (totalCalories > maxCalories ||
+                                      totalCalories == 0)
+                                  ? exit
+                                  : Navigator.pushNamed(
+                                    context,
+                                    'orderSummeryScreen',
+                                    arguments: widget.foodCount,
+                                  );
                             },
-                            color: ColorsManager.mainOrange,
+                            color:
+                                (priceAndCaloriesCalculator(
+                                              widget.foodCount,
+                                            )['totalCalories']! >
+                                            maxCalories ||
+                                        priceAndCaloriesCalculator(
+                                              widget.foodCount,
+                                            )['totalCalories'] ==
+                                            0)
+                                    ? ColorsManager.lightGray
+                                    : ColorsManager.mainOrange,
+                                    textColor: (priceAndCaloriesCalculator(
+                                              widget.foodCount,
+                                            )['totalCalories']! >
+                                            maxCalories ||
+                                        priceAndCaloriesCalculator(
+                                              widget.foodCount,
+                                            )['totalCalories'] ==
+                                            0)
+                                    ? ColorsManager.midGray
+                                    :Colors.white,
                           ),
                         ],
                       ),
