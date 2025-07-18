@@ -49,7 +49,7 @@ class _CounterWidgetState extends State<CounterWidget> {
             child: Text(
               '${widget.count}', // Replace with actual counter value
               style: TextStyles.font16BlackMedium.copyWith(
-                fontFamily: 'poppins',
+                fontFamily: 'Poppins',
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,

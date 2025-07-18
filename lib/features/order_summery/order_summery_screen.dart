@@ -42,7 +42,7 @@ class _OrderSummeryScreenState extends State<OrderSummeryScreen> {
         ),
         title: Text(
           'Order summary',
-          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'poppins'),
+          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'Poppins'),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,

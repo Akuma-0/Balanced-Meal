@@ -31,7 +31,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
         ),
         title: Text(
           "Enter Your Details",
-          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'poppins'),
+          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'Poppins'),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -53,7 +53,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                       Text(
                         "Gender",
                         style: TextStyles.font14LightBlackMedium.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(height: 10.h),
@@ -69,7 +69,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                             return Text(
                               item,
                               style: TextStyles.font16LightBlackMedium.copyWith(
-                                fontFamily: 'poppins',
+                                fontFamily: 'Poppins',
                               ),
                             );
                           }).toList();
@@ -99,7 +99,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                                             item,
                                             style: TextStyle(
                                               fontSize: 16,
-                                              fontFamily: 'poppins',
+                                              fontFamily: 'Poppins',
                                               color: Colors.black87,
                                               fontWeight:
                                                   selectedGender == item
@@ -195,7 +195,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                       Text(
                         "Weight",
                         style: TextStyles.font14LightBlackMedium.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(height: 10.h),
@@ -208,7 +208,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                             child: Text(
                               'Kg',
                               style: TextStyles.font14LightBlackMedium.copyWith(
-                                fontFamily: 'poppins',
+                                fontFamily: 'Poppins',
                               ),
                             ),
                           ),
@@ -231,7 +231,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                       Text(
                         "Height",
                         style: TextStyles.font14LightBlackMedium.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(height: 10.h),
@@ -244,7 +244,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                             child: Text(
                               'Cm',
                               style: TextStyles.font14LightBlackMedium.copyWith(
-                                fontFamily: 'poppins',
+                                fontFamily: 'Poppins',
                               ),
                             ),
                           ),
@@ -267,7 +267,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
                       Text(
                         "Age",
                         style: TextStyles.font14LightBlackMedium.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(height: 10.h),

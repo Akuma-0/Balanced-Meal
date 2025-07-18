@@ -31,7 +31,7 @@ class AppTextButton extends StatelessWidget {
         text,
 
         style: TextStyles.font16WhiteMedium.copyWith(
-          fontFamily: 'poppins',
+          fontFamily: 'Poppins',
           color: textColor,
         ),
       ),

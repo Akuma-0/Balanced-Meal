@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                   Text(
                     'Craft your ideal meal effortlessly with our app. Select nutritious ingredients tailored to your taste and well-being.',
                     style: TextStyles.font20GrayLight.copyWith(
-                      fontFamily: 'poppins',
+                      fontFamily: 'Poppins',
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -55,10 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                     text: 'Order Food',
                     color: ColorsManager.mainOrange,
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        'userDetailsScreen',
-                      );
+                      Navigator.pushNamed(context, 'userDetailsScreen');
                     },
                   ),
                 ],

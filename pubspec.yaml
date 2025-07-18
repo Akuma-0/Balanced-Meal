@@ -30,18 +30,26 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  bloc: ^9.0.0
-  cupertino_icons: ^1.0.8
-  dio: ^5.8.0+1
   dropdown_button2: ^2.3.9
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_screenutil: ^5.9.3
-  json_annotation: ^4.9.0
 
 dev_dependencies:
   build_runner: ^2.3.3
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    background_color: "#cdcdcd"
+    theme_color: "#cdcdcd"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -80,14 +88,15 @@ flutter:
     - family: AbhayaLibre
       fonts:
         - asset: assets/fonts/AbhayaLibre-ExtraBold.ttf
-    - family: poppins
+    - family: Poppins
       fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-Light.ttf
           weight: 300
-        - asset: assets/fonts/Poppins-Medium.ttf
-          weight: 500
         - asset: assets/fonts/Poppins-Regular.ttf
           weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf

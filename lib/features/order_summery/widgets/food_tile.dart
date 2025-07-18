@@ -80,7 +80,7 @@ class _FoodTileState extends State<FoodTile> {
                       Text(
                         widget.foodData.name,
                         style: TextStyles.font16BlackRegular.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -88,7 +88,7 @@ class _FoodTileState extends State<FoodTile> {
                       Text(
                         '${widget.foodData.calories} Cal',
                         style: TextStyles.font14MidGrayRegular.copyWith(
-                          fontFamily: 'poppins',
+                          fontFamily: 'Poppins',
                         ),
                       ),
                     ],
@@ -102,7 +102,7 @@ class _FoodTileState extends State<FoodTile> {
                     Text(
                       '\$12',
                       style: TextStyles.font16BlackMedium.copyWith(
-                        fontFamily: 'poppins',
+                        fontFamily: 'Poppins',
                       ),
                     ),
                     CounterWidget(count: widget.count, onCountChanged: _onCountChanged,),

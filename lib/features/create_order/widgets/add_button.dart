@@ -23,7 +23,7 @@ class AddButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
           ),
           textStyle: TextStyles.font16WhiteRegular.copyWith(
-            fontFamily: 'poppins',
+            fontFamily: 'Poppins',
           ),
         ),
         child: Text('Add'),

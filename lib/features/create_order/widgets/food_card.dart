@@ -80,7 +80,7 @@ class _FoodCardState extends State<FoodCard> {
                   child: Text(
                     widget.foodData.name,
                     style: TextStyles.font16BlackRegular.copyWith(
-                      fontFamily: 'poppins',
+                      fontFamily: 'Poppins',
                     ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -90,7 +90,7 @@ class _FoodCardState extends State<FoodCard> {
                 Text(
                   '${widget.foodData.calories} Cal',
                   style: TextStyles.font14MidGrayRegular.copyWith(
-                    fontFamily: 'poppins',
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ],
@@ -102,7 +102,7 @@ class _FoodCardState extends State<FoodCard> {
                 Text(
                   '\$12',
                   style: TextStyles.font16BlackMedium.copyWith(
-                    fontFamily: 'poppins',
+                    fontFamily: 'Poppins',
                   ),
                 ),
                 (widget.count == 0)

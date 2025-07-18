@@ -71,7 +71,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
         ),
         title: Text(
           'Create your order',
-          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'poppins'),
+          style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'Poppins'),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -94,7 +94,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                         Text(
                           'Vegetables',
                           style: TextStyles.font20BlackMedium.copyWith(
-                            fontFamily: 'poppins',
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         SizedBox(height: 5.h),
@@ -103,7 +103,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                         Text(
                           'Meats',
                           style: TextStyles.font20BlackMedium.copyWith(
-                            fontFamily: 'poppins',
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         SizedBox(height: 5.h),
@@ -112,7 +112,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                         Text(
                           'Carbs',
                           style: TextStyles.font20BlackMedium.copyWith(
-                            fontFamily: 'poppins',
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         SizedBox(height: 5.h),
@@ -143,13 +143,13 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                               Text(
                                 'Cal',
                                 style: TextStyles.font16BlackRegular.copyWith(
-                                  fontFamily: 'poppins',
+                                  fontFamily: 'Poppins',
                                 ),
                               ),
                               Text(
                                 '${(widget.foodCount.isEmpty) ? '0' : priceAndCaloriesCalculator(widget.foodCount)['totalCalories']!.toString()} Cal out of $maxCalories Cal',
                                 style: TextStyles.font14MidGrayRegular.copyWith(
-                                  fontFamily: 'poppins',
+                                  fontFamily: 'Poppins',
                                 ),
                               ),
                             ],
@@ -161,13 +161,13 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                               Text(
                                 'Price',
                                 style: TextStyles.font16BlackRegular.copyWith(
-                                  fontFamily: 'poppins',
+                                  fontFamily: 'Poppins',
                                 ),
                               ),
                               Text(
                                 '\$${(widget.foodCount.isEmpty) ? '0.0' : priceAndCaloriesCalculator(widget.foodCount)['totalPrice']!.toString()}',
                                 style: TextStyles.font16OrangeMedium.copyWith(
-                                  fontFamily: 'poppins',
+                                  fontFamily: 'Poppins',
                                 ),
                               ),
                             ],
