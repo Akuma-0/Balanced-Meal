@@ -23,12 +23,7 @@ class _EnterUserDetailsScreenState extends State<EnterUserDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.chevron_left, color: Color(0xff1E1E1E)),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        leading: null,
         title: Text(
           "Enter Your Details",
           style: TextStyles.font20BlackMedium.copyWith(fontFamily: 'Poppins'),

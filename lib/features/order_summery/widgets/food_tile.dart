@@ -4,12 +4,11 @@ import 'package:balanced_meal/models/food_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class FoodTile extends StatefulWidget {
   FoodTile({
     super.key,
     required this.onCountChanged,
-     required this.foodData,
+    required this.foodData,
     this.count = 0,
   });
   int count;
@@ -31,6 +30,7 @@ class _FoodTileState extends State<FoodTile> {
         widget.onCountChanged!(count);
       }
     }
+
     return Container(
       width: 327.w,
       height: 78.h,
@@ -52,7 +52,8 @@ class _FoodTileState extends State<FoodTile> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(6.r),
-              child: (widget.foodData.imageUrl.isNotEmpty)
+              child:
+                  (widget.foodData.imageUrl.isNotEmpty)
                       ? FadeInImage.assetNetwork(
                         placeholder: 'assets/images/Loading.gif',
                         image: widget.foodData.imageUrl,
@@ -105,7 +106,10 @@ class _FoodTileState extends State<FoodTile> {
                         fontFamily: 'Poppins',
                       ),
                     ),
-                    CounterWidget(count: widget.count, onCountChanged: _onCountChanged,),
+                    CounterWidget(
+                      count: widget.count,
+                      onCountChanged: _onCountChanged,
+                    ),
                   ],
                 ),
               ],

@@ -55,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                     text: 'Order Food',
                     color: ColorsManager.mainOrange,
                     onPressed: () {
-                      Navigator.pushNamed(context, 'userDetailsScreen');
+                      Navigator.pushReplacementNamed(context, 'loginScreen');
                     },
                   ),
                 ],
